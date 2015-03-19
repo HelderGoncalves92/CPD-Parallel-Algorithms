@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
     else
         Bubble_sort(a, n);
     
-    printf("Time: %f\n",omp_get_wtime()-time);
+    printf("%f\n",omp_get_wtime()-time);
     
    // if(testeOrder(a,n)) printf("OK!!\n"); else printf("NÂO OK!!\n");
    // Print_list(a, n, "After sort");
@@ -167,14 +167,14 @@ void Bubble_sort(
     int i, temp;
 
     int stride = n / num_threads;
-    int sectionsOffset[num_threads+1];
+    int sectionsOffset[num_threads];
     
     for(i=0; i < num_threads;i++)
         sectionsOffset[i] = (i+1)*stride;
     
     
-    omp_lock_t locks[num_threads];
-    for(i=0; i<num_threads; i++)
+    omp_lock_t locks[num_threads+1];
+    for(i=0; i<=num_threads; i++)
         omp_init_lock(&locks[i]);
 
 #pragma omp parallel shared(list_length, sectionsOffset, locks, ordered) private(i, temp)
@@ -197,13 +197,13 @@ void Bubble_sort(
             if(i == sectionsOffset[section]){
                 omp_set_lock(&locks[++section]);
                 omp_unset_lock(&locks[section-1]);
-                
             }
         }
         if(change == 0) ordered=1;
         list_length--;
 
         omp_unset_lock(&locks[section]);
+
     }
 }
 }  /* Bubble_sort */
