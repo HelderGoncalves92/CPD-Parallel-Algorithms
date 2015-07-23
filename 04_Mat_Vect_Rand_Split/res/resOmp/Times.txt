@@ -1,0 +1,39 @@
+------- Dim: 8000000 8-------
+-->Nº threads: 1
+Elapsed time = 1.003470e-01 seconds
+Elapsed time = 9.949589e-02 seconds
+-->Nº threads: 2
+Elapsed time = 6.170797e-02 seconds
+Elapsed time = 6.095505e-02 seconds
+-->Nº threads: 4
+Elapsed time = 3.478384e-02 seconds
+Elapsed time = 3.353500e-02 seconds
+-->Nº threads: 8
+Elapsed time = 2.301502e-02 seconds
+Elapsed time = 2.384400e-02 seconds
+------- Dim: 8000 8000-------
+-->Nº threads: 1
+Elapsed time = 8.880591e-02 seconds
+Elapsed time = 8.874798e-02 seconds
+-->Nº threads: 2
+Elapsed time = 5.425000e-02 seconds
+Elapsed time = 5.251622e-02 seconds
+-->Nº threads: 4
+Elapsed time = 3.031707e-02 seconds
+Elapsed time = 3.147793e-02 seconds
+-->Nº threads: 8
+Elapsed time = 2.265596e-02 seconds
+Elapsed time = 2.062917e-02 seconds
+------- Dim: 8 8000000-------
+-->Nº threads: 1
+Elapsed time = 9.950614e-02 seconds
+Elapsed time = 9.949493e-02 seconds
+-->Nº threads: 2
+Elapsed time = 6.435990e-02 seconds
+Elapsed time = 6.745791e-02 seconds
+-->Nº threads: 4
+Elapsed time = 4.019308e-02 seconds
+Elapsed time = 3.886604e-02 seconds
+-->Nº threads: 8
+Elapsed time = 2.592611e-02 seconds
+Elapsed time = 2.721810e-02 seconds

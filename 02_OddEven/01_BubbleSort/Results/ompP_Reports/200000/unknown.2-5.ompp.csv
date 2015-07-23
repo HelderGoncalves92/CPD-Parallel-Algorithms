@@ -1,0 +1,136 @@
+##BEG header separator=,
+Start Date,Wed Mar 11 01:36:13 2015
+End Date,Wed Mar 11 01:37:16 2015
+Duration,63.097467,sec
+Application Name,unknown
+Type of Report,final
+Thread Count,2
+ompP Version Major,0
+ompP Version Minor,8
+ompP Version Revision,99
+ompP Build Date,Nov 16 2014 11:48:18
+PAPI Support,available
+Max Counters,4
+PAPI Active,no
+Used Counters,0
+OMPP_CTR1,not set
+OMPP_CTR2,not set
+OMPP_CTR3,not set
+OMPP_CTR4,not set
+Max Evaluators,4
+Used Evaluators,0
+OMPP_EVAL1,not set
+OMPP_EVAL2,not set
+OMPP_EVAL3,not set
+OMPP_EVAL4,not set
+##END header
+##BEG region overview
+PARALLEL,2
+R00001,PARALLEL,main.c,41,42,
+R00002,PARALLEL,main.c,180,208,
+LOCK,3
+R00005,LOCK,
+R00006,LOCK,
+R00007,LOCK,
+##END region overview
+
+##BEG ompp callgraph
+Inclusive,(%),Exclusive,(%)
+63.097467,100.0,0.006299,0.009983,0,[unknown: 2 threads]
+0.000106,0.000168,0.000106,0.000168,1,R00001,PARALLEL,main.c,41,42,
+63.091062,99.989849,63.091062,99.989849,1,R00002,PARALLEL,main.c,180,208,
+##END ompp callgraph
+
+##BEG flat region profiles
+##BEG R00001 flat profile
+R00001,PARALLEL,main.c,41,42,
+TID,execT,execC,bodyT,exitBarT,startupT,shutdwnT,taskT
+0,0.000102,1,0.000003,0.000005,0.000090,0.000003,0.000000
+1,0.000102,1,0.000002,0.000007,0.000089,0.000003,0.000000
+SUM,0.000204,2,0.000005,0.000012,0.000179,0.000006,0.000000
+##END R00001 flat profile
+
+##BEG R00005 flat profile
+R00005,LOCK,
+TID,execT,execC,bodyT,enterT,exitT
+0,54.109447,99360,31.340849,22.718147,0.050452
+1,54.118535,98611,31.604302,22.464691,0.049541
+SUM,108.227982,197971,62.945151,45.182838,0.099993
+##END R00005 flat profile
+
+##BEG R00006 flat profile
+R00006,LOCK,
+TID,execT,execC,bodyT,enterT,exitT
+0,9.037441,50001,8.987776,0.031030,0.018634
+1,9.022807,49998,8.971475,0.027540,0.023791
+SUM,18.060247,99999,17.959251,0.058570,0.042426
+##END R00006 flat profile
+
+##BEG R00007 flat profile
+R00007,LOCK,
+TID,execT,execC,bodyT,enterT,exitT
+0,0.000000,0,0.000000,0.000000,0.000000
+1,0.000000,0,0.000000,0.000000,0.000000
+SUM,0.000000,0,0.000000,0.000000,0.000000
+##END R00007 flat profile
+
+##BEG R00002 flat profile
+R00002,PARALLEL,main.c,180,208,
+TID,execT,execC,bodyT,exitBarT,startupT,shutdwnT,taskT
+0,63.091062,1,63.091050,0.000002,0.000004,0.000005,0.000000
+1,63.091062,1,63.091022,0.000005,0.000029,0.000006,0.000000
+SUM,126.182124,2,126.182072,0.000007,0.000033,0.000011,0.000000
+##END R00002 flat profile
+
+##END flat region profiles
+
+##BEG callgraph region profiles
+##BEG R00001 callgraph profile
+[*00],unknown
+[=01],R00001,PARALLEL,main.c,41,42,
+TID,execT,execC,bodyT/I,bodyT/E,exitBarT,startupT,shutdwnT,taskT
+0,0.000106,1,0.000004,0.000004,0.000004,0.000092,0.000003,0.000000
+1,0.000106,1,0.000004,0.000004,0.000004,0.000091,0.000003,0.000000
+SUM,0.000212,2,0.000008,0.000008,0.000008,0.000183,0.000006,0.000000
+##END R00001 callgraph profile
+
+##BEG R00002 callgraph profile
+[*00],unknown
+[=01],R00002,PARALLEL,main.c,180,208,
+TID,execT,execC,bodyT/I,bodyT/E,exitBarT,startupT,shutdwnT,taskT
+0,63.091062,1,63.091049,63.091049,0.000003,0.000005,0.000004,0.000000
+1,63.091062,1,63.091023,63.091023,0.000005,0.000028,0.000005,0.000000
+SUM,126.182124,2,126.182072,126.182072,0.000008,0.000033,0.000009,0.000000
+##END R00002 callgraph profile
+
+##END callgraph region profiles
+
+##BEG overhead analysis report
+Total runtime (wallclock) [secs],63.097467
+Number of threads,2
+Number of parallel regions,2
+Parallel coverage [secs],63.091164
+Parallel coverage [percent],99.990011
+
+##BEG parallel regions sorted by wallclock time
+,Type,Wallclock,(%)
+R00002,PARALLEL,63.091062,99.989849
+R00001,PARALLEL,0.000102,0.000162
+SUM,63.091164,,99.990011
+##END parallel regions sorted by wallclock time
+
+##BEG overheads for parallel region
+,Total,Ovhds,(%),Synch,(%),Imbal,(%),Limpar,(%),Mgmt,(%)
+R00002,126.182124,0.000050,0.000040,0.000000,0.000000,0.000008,0.000006,0.000000,0.000000,0.000042,0.000033
+R00001,0.000204,0.000197,96.612150,0.000000,0.000000,0.000008,3.855140,0.000000,0.000000,0.000189,92.757009
+##END overheads for parallel region
+
+##BEG overheads for whole program
+,Total,Ovhds,(%),Synch,(%),Imbal,(%),Limpar,(%),Mgmt,(%)
+R00001,0.000204,0.000197,0.000156,0.000000,0.000000,0.000008,0.000006,0.000000,0.000000,0.000189,0.000150
+R00002,126.182124,0.000050,0.000040,0.000000,0.000000,0.000008,0.000006,0.000000,0.000000,0.000042,0.000033
+SUM,126.182328,0.000247,0.000196,0.000000,0.000000,0.000016,0.000012,0.000000,0.000000,0.000232,0.000183
+##END overheads for whole program
+
+##END overhead analysis report
+

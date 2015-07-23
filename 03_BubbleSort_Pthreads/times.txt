@@ -1,0 +1,162 @@
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+compute-662-6
+---------------  OMP  ------------------
+Num threads: 1 
+14.892059
+14.775265
+14.703512
+Num threads: 2 
+19.178889
+18.552066
+18.243266
+Num threads: 4 
+12.105079
+11.967166
+12.095637
+Num threads: 8 
+6.884078
+6.808179
+6.634923
+Num threads: 12 
+4.691392
+4.860979
+4.972449
+Num threads: 16 
+3.629457
+3.565369
+4.108892
+Num threads: 20 
+3.581213
+2.999026
+4.021686
+Num threads: 24 
+2.594720
+3.109034
+3.354894
+Num threads: 28 
+3.816970
+3.890965
+2.446947
+Num threads: 32 
+2.298980
+2.249214
+2.250950
+Num threads: 34 
+2.301334
+3.670809
+2.271583
+Num threads: 38 
+1.986160
+2.095520
+2.040887
+Num threads: 42 
+1.915292
+3.231024
+1.852669
+Num threads: 44 
+3.580133
+2.181729
+3.419541
+Num threads: 48 
+3.460716
+1.970074
+2.018554
+--------------- PTHREADS ------------------
+Num threads: 1 
+14.991992
+14.979929
+14.980785
+Num threads: 2 
+30.963017
+30.843435
+31.107298
+Num threads: 4 
+21.937814
+22.072555
+21.937888
+Num threads: 8 
+13.732707
+13.431387
+13.227863
+Num threads: 12 
+9.926407
+9.968925
+9.802794
+Num threads: 16 
+8.139661
+7.914493
+8.299792
+Num threads: 20 
+6.845842
+7.072385
+7.091754
+Num threads: 24 
+6.194178
+6.229884
+6.210357
+Num threads: 28 
+5.513597
+5.584736
+5.630538
+Num threads: 32 
+5.133870
+5.101355
+5.180750
+Num threads: 34 
+4.943320
+4.894513
+4.943262
+Num threads: 38 
+4.579366
+4.592231
+4.580667
+Num threads: 42 
+4.322775
+4.303221
+4.324230
+Num threads: 44 
+4.197336
+4.182741
+4.179103
+Num threads: 48 
+3.988686
+4.007352
+3.984515

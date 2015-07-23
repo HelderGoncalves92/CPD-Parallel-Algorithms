@@ -1,0 +1,103 @@
+##BEG header separator=,
+Start Date,Wed Jun 24 17:44:30 2015
+End Date,Wed Jun 24 17:44:30 2015
+Duration,0.129316,sec
+Application Name,unknown
+Type of Report,final
+Thread Count,1
+ompP Version Major,0
+ompP Version Minor,8
+ompP Version Revision,99
+ompP Build Date,Nov 16 2014 11:48:18
+PAPI Support,available
+Max Counters,4
+PAPI Active,yes
+Used Counters,3
+OMPP_CTR1,PAPI_LD_INS
+OMPP_CTR2,PAPI_ST_INS
+OMPP_CTR3,not set
+OMPP_CTR4,PAPI_SR_INS
+Max Evaluators,4
+Used Evaluators,0
+OMPP_EVAL1,not set
+OMPP_EVAL2,not set
+OMPP_EVAL3,not set
+OMPP_EVAL4,not set
+##END header
+##BEG region overview
+PARALLEL,1
+R00001,PARALLEL,main.cpp,197,209,
+LOOP,1
+R00002,LOOP,main.cpp,201,208,
+##END region overview
+
+##BEG ompp callgraph
+Inclusive,(%),Exclusive,(%)
+0.129316,100.0,0.029403,22.737329,0,[unknown: 1 threads]
+0.099913,77.262671,0.000094,0.072641,1,R00001,PARALLEL,main.cpp,197,209,
+0.099819,77.190029,0.099819,77.190029,2,R00002,LOOP,main.cpp,201,208,
+##END ompp callgraph
+
+##BEG flat region profiles
+##BEG R00001 flat profile
+R00001,PARALLEL,main.cpp,197,209,
+TID,execT,execC,bodyT,exitBarT,startupT,shutdwnT,taskT,PAPI_LD_INS,PAPI_ST_INS,PAPI_SR_INS
+0,0.099908,1,0.099871,0.000005,0.000022,0.000009,0.000000,128036300,238573064,64020067
+SUM,0.099908,1,0.099871,0.000005,0.000022,0.000009,0.000000,128036300,238573064,64020067
+##END R00001 flat profile
+
+##BEG R00002 flat profile
+R00002,LOOP,main.cpp,201,208,
+TID,execT,execC,bodyT,exitBarT,taskT,PAPI_LD_INS,PAPI_ST_INS,PAPI_SR_INS
+0,0.099815,1,0.099789,0.000025,0.000000,128009851,238484435,64000210
+SUM,0.099815,1,0.099789,0.000025,0.000000,128009851,238484435,64000210
+##END R00002 flat profile
+
+##END flat region profiles
+
+##BEG callgraph region profiles
+##BEG R00001 callgraph profile
+[*00],unknown
+[+01],R00001,PARALLEL,main.cpp,197,209,
+TID,execT,execC,bodyT/I,bodyT/E,exitBarT,startupT,shutdwnT,taskT,PAPI_LD_INS/I,PAPI_LD_INS/E,PAPI_ST_INS/I,PAPI_ST_INS/E,PAPI_SR_INS/I,PAPI_SR_INS/E
+0,0.099913,1,0.099874,0.000055,0.000010,0.000019,0.000009,0.000000,128036285,26500,238572957,90706,64020067,19859
+SUM,0.099913,1,0.099874,0.000055,0.000010,0.000019,0.000009,0.000000,128036285,26500,238572957,90706,64020067,19859
+##END R00001 callgraph profile
+
+##BEG R00002 callgraph profile
+[*00],unknown
+[+01],R00001,PARALLEL,main.cpp,197,209,
+[=02],R00002,LOOP,main.cpp,201,208,
+TID,execT,execC,bodyT/I,bodyT/E,exitBarT,taskT,PAPI_LD_INS/I,PAPI_LD_INS/E,PAPI_ST_INS/I,PAPI_ST_INS/E,PAPI_SR_INS/I,PAPI_SR_INS/E
+0,0.099819,1,0.099776,0.099776,0.000037,0.000000,128009785,128009785,238482251,238482251,64000208,64000208
+SUM,0.099819,1,0.099776,0.099776,0.000037,0.000000,128009785,128009785,238482251,238482251,64000208,64000208
+##END R00002 callgraph profile
+
+##END callgraph region profiles
+
+##BEG overhead analysis report
+Total runtime (wallclock) [secs],0.129316
+Number of threads,1
+Number of parallel regions,1
+Parallel coverage [secs],0.099908
+Parallel coverage [percent],77.258799
+
+##BEG parallel regions sorted by wallclock time
+,Type,Wallclock,(%),PAPI_LD_INS,PAPI_ST_INS,PAPI_SR_INS
+R00001,PARALLEL,0.099908,77.258799,0,0,0
+SUM,0.099908,,77.258799,0,0,0
+##END parallel regions sorted by wallclock time
+
+##BEG overheads for parallel region
+,Total,Ovhds,(%),Synch,(%),Imbal,(%),Limpar,(%),Mgmt,(%)
+R00001,0.099908,0.000075,0.074932,0.000000,0.000000,0.000047,0.047012,0.000000,0.000000,0.000028,0.027921
+##END overheads for parallel region
+
+##BEG overheads for whole program
+,Total,Ovhds,(%),Synch,(%),Imbal,(%),Limpar,(%),Mgmt,(%)
+R00001,0.099908,0.000075,0.057892,0.000000,0.000000,0.000047,0.036321,0.000000,0.000000,0.000028,0.021571
+SUM,0.099908,0.000075,0.057892,0.000000,0.000000,0.000047,0.036321,0.000000,0.000000,0.000028,0.021571
+##END overheads for whole program
+
+##END overhead analysis report
+

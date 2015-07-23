@@ -1,0 +1,81 @@
+##BEG header separator=,
+Start Date,Wed Jun 24 17:47:56 2015
+End Date,Wed Jun 24 17:47:56 2015
+Duration,0.133021,sec
+Application Name,unknown
+Type of Report,final
+Thread Count,1
+ompP Version Major,0
+ompP Version Minor,8
+ompP Version Revision,99
+ompP Build Date,Nov 16 2014 11:48:18
+PAPI Support,available
+Max Counters,4
+PAPI Active,yes
+Used Counters,2
+OMPP_CTR1,PAPI_LD_INS
+OMPP_CTR2,PAPI_SR_IND
+OMPP_CTR3,not set
+OMPP_CTR4,not set
+Max Evaluators,4
+Used Evaluators,0
+OMPP_EVAL1,not set
+OMPP_EVAL2,not set
+OMPP_EVAL3,not set
+OMPP_EVAL4,not set
+##END header
+##BEG region overview
+USER REGION,1
+R00001,USER REGION,pthreads.cpp,92,105,enum
+##END region overview
+
+##BEG ompp callgraph
+Inclusive,(%),Exclusive,(%)
+0.133021,100.0,0.026355,19.812844,0,[unknown: 1 threads]
+0.106666,80.187156,0.106666,80.187156,1,R00001,USER REGION,pthreads.cpp,92,105,enum
+##END ompp callgraph
+
+##BEG flat region profiles
+##BEG R00001 flat profile
+R00001,USER REGION,pthreads.cpp,92,105,enum
+TID,execT,execC,PAPI_LD_INS,PAPI_SR_IND
+0,0.106671,1,4770,69079
+SUM,0.106671,1,4770,69079
+##END R00001 flat profile
+
+##END flat region profiles
+
+##BEG callgraph region profiles
+##BEG R00001 callgraph profile
+[*00],unknown
+[=01],R00001,USER REGION,pthreads.cpp,92,105,enum
+TID,execT/I,execT/E,execC,PAPI_LD_INS/I,PAPI_LD_INS/E,PAPI_SR_IND/I,PAPI_SR_IND/E
+0,0.106666,0.106666,1,4719,4719,70869,70869
+SUM,0.106666,0.106666,1,4719,4719,70869,70869
+##END R00001 callgraph profile
+
+##END callgraph region profiles
+
+##BEG overhead analysis report
+Total runtime (wallclock) [secs],0.133021
+Number of threads,1
+Number of parallel regions,0
+Parallel coverage [secs],0.000000
+Parallel coverage [percent],0.000000
+
+##BEG parallel regions sorted by wallclock time
+,Type,Wallclock,(%),PAPI_LD_INS,PAPI_SR_IND
+SUM,0.000000,,0.000000,0,0
+##END parallel regions sorted by wallclock time
+
+##BEG overheads for parallel region
+,Total,Ovhds,(%),Synch,(%),Imbal,(%),Limpar,(%),Mgmt,(%)
+##END overheads for parallel region
+
+##BEG overheads for whole program
+,Total,Ovhds,(%),Synch,(%),Imbal,(%),Limpar,(%),Mgmt,(%)
+SUM,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000
+##END overheads for whole program
+
+##END overhead analysis report
+

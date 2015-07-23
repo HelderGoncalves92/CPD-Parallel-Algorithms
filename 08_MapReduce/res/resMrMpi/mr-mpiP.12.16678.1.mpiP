@@ -1,0 +1,498 @@
+@ mpiP
+@ Command : mr-mpiP 
+@ Version                  : 3.4.1
+@ MPIP Build date          : Jun  5 2014, 13:01:50
+@ Start time               : 2015 06 25 03:31:05
+@ Stop time                : 2015 06 25 03:31:07
+@ Timer Used               : PMPI_Wtime
+@ MPIP env var             : [null]
+@ Collector Rank           : 0
+@ Collector PID            : 16678
+@ Final Output Dir         : .
+@ Report generation        : Single collector task
+@ MPI Task Assignment      : 0 compute-662-6.local
+@ MPI Task Assignment      : 1 compute-662-6.local
+@ MPI Task Assignment      : 2 compute-662-6.local
+@ MPI Task Assignment      : 3 compute-662-6.local
+@ MPI Task Assignment      : 4 compute-662-6.local
+@ MPI Task Assignment      : 5 compute-662-6.local
+@ MPI Task Assignment      : 6 compute-662-6.local
+@ MPI Task Assignment      : 7 compute-662-6.local
+@ MPI Task Assignment      : 8 compute-662-6.local
+@ MPI Task Assignment      : 9 compute-662-6.local
+@ MPI Task Assignment      : 10 compute-662-6.local
+@ MPI Task Assignment      : 11 compute-662-6.local
+
+---------------------------------------------------------------------------
+@--- MPI Time (seconds) ---------------------------------------------------
+---------------------------------------------------------------------------
+Task    AppTime    MPITime     MPI%
+   0       1.56       1.21    77.32
+   1       1.56      0.749    48.07
+   2       1.56      0.441    28.27
+   3       1.56      0.229    14.72
+   4       1.56     0.0958     6.15
+   5       1.56     0.0266     1.71
+   6       1.56    0.00415     0.27
+   7       1.56      0.017     1.09
+   8       1.56     0.0584     3.75
+   9       1.56      0.132     8.49
+  10       1.56      0.237    15.23
+  11       1.56      0.404    25.94
+   *       18.7        3.6    19.25
+---------------------------------------------------------------------------
+@--- Callsites: 15 --------------------------------------------------------
+---------------------------------------------------------------------------
+ ID Lev File/Address        Line Parent_Funct                                                                       MPI_Call
+  1   0 0x4bf8c5                 _ZN12MAPREDUCE_NS9Irregular5setupEiPiS1_S1_mRd                                     Allreduce
+  2   0 0x4bf9c8                 _ZN12MAPREDUCE_NS9Irregular5setupEiPiS1_S1_mRd                                     Allreduce
+  3   0 0x4bf7da                 _ZN12MAPREDUCE_NS9Irregular5setupEiPiS1_S1_mRd                                     Allreduce
+  4   0 0x4bd3e2                 _ZN12MAPREDUCE_NS9MapReduce6reduceEPFvPciS1_iPiPNS_8KeyValueEPvES5_                Allreduce
+  5   0 0x4ba6e2                 _ZN12MAPREDUCE_NS9MapReduce9aggregateEPFiPciE                                      Allreduce
+  6   0 0x4ba4e2                 _ZN12MAPREDUCE_NS9MapReduce9aggregateEPFiPciE                                      Allreduce
+  7   0 0x4bb2e7                 _ZN12MAPREDUCE_NS9MapReduce7collateEPFiPciE                                        Allreduce
+  8   0 0x4ba5fa                 _ZN12MAPREDUCE_NS9MapReduce9aggregateEPFiPciE                                      Allreduce
+  9   0 0x4ba284                 _ZN12MAPREDUCE_NS9MapReduce9aggregateEPFiPciE                                      Allreduce
+ 10   0 0x4bbf9c                 _ZN12MAPREDUCE_NS9MapReduce9map_tasksEiPPcPFviPNS_8KeyValueEPvEPFviS1_S4_S5_ES5_ii Allreduce
+ 11   0 0x4bfda0                 _ZN12MAPREDUCE_NS9Irregular16exchange_all2allEiPiPPcS1_S2_S2_                      Alltoallv
+ 12   0 0x4b5ca6                 _ZN12MAPREDUCE_NS8KeyValue8completeEv                                              Allreduce
+ 13   0 0x4bf945                 _ZN12MAPREDUCE_NS9Irregular5setupEiPiS1_S1_mRd                                     Alltoall
+ 14   0 0x4bfacd                 _ZN12MAPREDUCE_NS9Irregular5setupEiPiS1_S1_mRd                                     Reduce_scatter
+ 15   0 0x4bb206                 _ZN12MAPREDUCE_NS9MapReduce7convertEv                                              Allreduce
+---------------------------------------------------------------------------
+@--- Aggregate Time (top twenty, descending, milliseconds) ----------------
+---------------------------------------------------------------------------
+Call                 Site       Time    App%    MPI%     COV
+Allreduce              12   3.56e+03   19.02   98.83    1.22
+Alltoallv              11       24.1    0.13    0.67    0.09
+Allreduce               5        3.7    0.02    0.10    0.80
+Allreduce               8       3.32    0.02    0.09    0.40
+Allreduce               3       2.81    0.02    0.08    0.53
+Allreduce              15        2.6    0.01    0.07    0.66
+Allreduce               4       2.28    0.01    0.06    0.69
+Alltoall               13        1.6    0.01    0.04    0.07
+Allreduce               9      0.801    0.00    0.02    0.36
+Reduce_scatter         14      0.444    0.00    0.01    0.18
+Allreduce              10      0.259    0.00    0.01    0.29
+Allreduce               2      0.131    0.00    0.00    0.20
+Allreduce               7      0.078    0.00    0.00    0.12
+Allreduce               6      0.076    0.00    0.00    0.10
+Allreduce               1      0.065    0.00    0.00    0.10
+---------------------------------------------------------------------------
+@--- Aggregate Sent Message Size (top twenty, descending, bytes) ----------
+---------------------------------------------------------------------------
+Call                 Site      Count      Total       Avrg  Sent%
+Allreduce              12         36        144          4  12.50
+Allreduce               2         12         96          8   8.33
+Allreduce               3         12         96          8   8.33
+Allreduce               1         12         96          8   8.33
+Allreduce               6         12         96          8   8.33
+Allreduce               7         12         96          8   8.33
+Allreduce               4         12         96          8   8.33
+Allreduce               5         12         96          8   8.33
+Allreduce              10         12         96          8   8.33
+Allreduce              15         12         96          8   8.33
+Allreduce               8         12         48          4   4.17
+Allreduce               9         12         48          4   4.17
+Alltoall               13         12         48          4   4.17
+---------------------------------------------------------------------------
+@--- Callsite Time statistics (all, milliseconds): 180 --------------------
+---------------------------------------------------------------------------
+Name              Site Rank  Count      Max     Mean      Min   App%   MPI%
+Allreduce            1    0      1    0.006    0.006    0.006   0.00   0.00
+Allreduce            1    1      1    0.006    0.006    0.006   0.00   0.00
+Allreduce            1    2      1    0.005    0.005    0.005   0.00   0.00
+Allreduce            1    3      1    0.005    0.005    0.005   0.00   0.00
+Allreduce            1    4      1    0.005    0.005    0.005   0.00   0.01
+Allreduce            1    5      1    0.006    0.006    0.006   0.00   0.02
+Allreduce            1    6      1    0.006    0.006    0.006   0.00   0.14
+Allreduce            1    7      1    0.005    0.005    0.005   0.00   0.03
+Allreduce            1    8      1    0.006    0.006    0.006   0.00   0.01
+Allreduce            1    9      1    0.005    0.005    0.005   0.00   0.00
+Allreduce            1   10      1    0.005    0.005    0.005   0.00   0.00
+Allreduce            1   11      1    0.005    0.005    0.005   0.00   0.00
+Allreduce            1    *     12    0.006  0.00542    0.005   0.00   0.00
+
+Allreduce            2    0      1    0.009    0.009    0.009   0.00   0.00
+Allreduce            2    1      1    0.011    0.011    0.011   0.00   0.00
+Allreduce            2    2      1    0.007    0.007    0.007   0.00   0.00
+Allreduce            2    3      1    0.009    0.009    0.009   0.00   0.00
+Allreduce            2    4      1     0.01     0.01     0.01   0.00   0.01
+Allreduce            2    5      1    0.011    0.011    0.011   0.00   0.04
+Allreduce            2    6      1    0.014    0.014    0.014   0.00   0.34
+Allreduce            2    7      1    0.013    0.013    0.013   0.00   0.08
+Allreduce            2    8      1    0.014    0.014    0.014   0.00   0.02
+Allreduce            2    9      1    0.009    0.009    0.009   0.00   0.01
+Allreduce            2   10      1    0.013    0.013    0.013   0.00   0.01
+Allreduce            2   11      1    0.011    0.011    0.011   0.00   0.00
+Allreduce            2    *     12    0.014   0.0109    0.007   0.00   0.00
+
+Allreduce            3    0      1     0.01     0.01     0.01   0.00   0.00
+Allreduce            3    1      1    0.113    0.113    0.113   0.01   0.02
+Allreduce            3    2      1    0.164    0.164    0.164   0.01   0.04
+Allreduce            3    3      1    0.145    0.145    0.145   0.01   0.06
+Allreduce            3    4      1    0.155    0.155    0.155   0.01   0.16
+Allreduce            3    5      1    0.204    0.204    0.204   0.01   0.77
+Allreduce            3    6      1    0.244    0.244    0.244   0.02   5.89
+Allreduce            3    7      1    0.272    0.272    0.272   0.02   1.60
+Allreduce            3    8      1     0.33     0.33     0.33   0.02   0.57
+Allreduce            3    9      1    0.359    0.359    0.359   0.02   0.27
+Allreduce            3   10      1    0.389    0.389    0.389   0.02   0.16
+Allreduce            3   11      1    0.421    0.421    0.421   0.03   0.10
+Allreduce            3    *     12    0.421    0.234     0.01   0.02   0.08
+
+Allreduce            4    0      1    0.265    0.265    0.265   0.02   0.02
+Allreduce            4    1      1    0.107    0.107    0.107   0.01   0.01
+Allreduce            4    2      1    0.387    0.387    0.387   0.02   0.09
+Allreduce            4    3      1    0.021    0.021    0.021   0.00   0.01
+Allreduce            4    4      1     0.31     0.31     0.31   0.02   0.32
+Allreduce            4    5      1    0.036    0.036    0.036   0.00   0.14
+Allreduce            4    6      1    0.317    0.317    0.317   0.02   7.65
+Allreduce            4    7      1    0.011    0.011    0.011   0.00   0.06
+Allreduce            4    8      1    0.248    0.248    0.248   0.02   0.42
+Allreduce            4    9      1    0.191    0.191    0.191   0.01   0.14
+Allreduce            4   10      1    0.284    0.284    0.284   0.02   0.12
+Allreduce            4   11      1    0.099    0.099    0.099   0.01   0.02
+Allreduce            4    *     12    0.387     0.19    0.011   0.01   0.06
+
+Allreduce            5    0      1    0.449    0.449    0.449   0.03   0.04
+Allreduce            5    1      1    0.037    0.037    0.037   0.00   0.00
+Allreduce            5    2      1    0.614    0.614    0.614   0.04   0.14
+Allreduce            5    3      1    0.012    0.012    0.012   0.00   0.01
+Allreduce            5    4      1    0.517    0.517    0.517   0.03   0.54
+Allreduce            5    5      1    0.036    0.036    0.036   0.00   0.14
+Allreduce            5    6      1    0.541    0.541    0.541   0.03  13.05
+Allreduce            5    7      1     0.05     0.05     0.05   0.00   0.29
+Allreduce            5    8      1    0.503    0.503    0.503   0.03   0.86
+Allreduce            5    9      1    0.184    0.184    0.184   0.01   0.14
+Allreduce            5   10      1    0.594    0.594    0.594   0.04   0.25
+Allreduce            5   11      1     0.16     0.16     0.16   0.01   0.04
+Allreduce            5    *     12    0.614    0.308    0.012   0.02   0.10
+
+Allreduce            6    0      1    0.006    0.006    0.006   0.00   0.00
+Allreduce            6    1      1    0.007    0.007    0.007   0.00   0.00
+Allreduce            6    2      1    0.006    0.006    0.006   0.00   0.00
+Allreduce            6    3      1    0.007    0.007    0.007   0.00   0.00
+Allreduce            6    4      1    0.007    0.007    0.007   0.00   0.01
+Allreduce            6    5      1    0.007    0.007    0.007   0.00   0.03
+Allreduce            6    6      1    0.006    0.006    0.006   0.00   0.14
+Allreduce            6    7      1    0.006    0.006    0.006   0.00   0.04
+Allreduce            6    8      1    0.006    0.006    0.006   0.00   0.01
+Allreduce            6    9      1    0.007    0.007    0.007   0.00   0.01
+Allreduce            6   10      1    0.006    0.006    0.006   0.00   0.00
+Allreduce            6   11      1    0.005    0.005    0.005   0.00   0.00
+Allreduce            6    *     12    0.007  0.00633    0.005   0.00   0.00
+
+Allreduce            7    0      1    0.007    0.007    0.007   0.00   0.00
+Allreduce            7    1      1    0.007    0.007    0.007   0.00   0.00
+Allreduce            7    2      1    0.006    0.006    0.006   0.00   0.00
+Allreduce            7    3      1    0.007    0.007    0.007   0.00   0.00
+Allreduce            7    4      1    0.005    0.005    0.005   0.00   0.01
+Allreduce            7    5      1    0.007    0.007    0.007   0.00   0.03
+Allreduce            7    6      1    0.005    0.005    0.005   0.00   0.12
+Allreduce            7    7      1    0.007    0.007    0.007   0.00   0.04
+Allreduce            7    8      1    0.006    0.006    0.006   0.00   0.01
+Allreduce            7    9      1    0.007    0.007    0.007   0.00   0.01
+Allreduce            7   10      1    0.007    0.007    0.007   0.00   0.00
+Allreduce            7   11      1    0.007    0.007    0.007   0.00   0.00
+Allreduce            7    *     12    0.007   0.0065    0.005   0.00   0.00
+
+Allreduce            8    0      1    0.287    0.287    0.287   0.02   0.02
+Allreduce            8    1      1    0.302    0.302    0.302   0.02   0.04
+Allreduce            8    2      1     0.01     0.01     0.01   0.00   0.00
+Allreduce            8    3      1    0.323    0.323    0.323   0.02   0.14
+Allreduce            8    4      1    0.331    0.331    0.331   0.02   0.35
+Allreduce            8    5      1    0.324    0.324    0.324   0.02   1.22
+Allreduce            8    6      1    0.331    0.331    0.331   0.02   7.99
+Allreduce            8    7      1    0.337    0.337    0.337   0.02   1.98
+Allreduce            8    8      1    0.358    0.358    0.358   0.02   0.61
+Allreduce            8    9      1    0.083    0.083    0.083   0.01   0.06
+Allreduce            8   10      1     0.33     0.33     0.33   0.02   0.14
+Allreduce            8   11      1    0.301    0.301    0.301   0.02   0.07
+Allreduce            8    *     12    0.358    0.276     0.01   0.02   0.09
+
+Allreduce            9    0      1    0.084    0.084    0.084   0.01   0.01
+Allreduce            9    1      1    0.036    0.036    0.036   0.00   0.00
+Allreduce            9    2      1    0.077    0.077    0.077   0.00   0.02
+Allreduce            9    3      1    0.058    0.058    0.058   0.00   0.03
+Allreduce            9    4      1    0.092    0.092    0.092   0.01   0.10
+Allreduce            9    5      1    0.055    0.055    0.055   0.00   0.21
+Allreduce            9    6      1    0.108    0.108    0.108   0.01   2.61
+Allreduce            9    7      1    0.057    0.057    0.057   0.00   0.34
+Allreduce            9    8      1    0.075    0.075    0.075   0.00   0.13
+Allreduce            9    9      1    0.021    0.021    0.021   0.00   0.02
+Allreduce            9   10      1    0.081    0.081    0.081   0.01   0.03
+Allreduce            9   11      1    0.057    0.057    0.057   0.00   0.01
+Allreduce            9    *     12    0.108   0.0668    0.021   0.00   0.02
+
+Allreduce           10    0      1    0.009    0.009    0.009   0.00   0.00
+Allreduce           10    1      1    0.017    0.017    0.017   0.00   0.00
+Allreduce           10    2      1     0.02     0.02     0.02   0.00   0.00
+Allreduce           10    3      1    0.027    0.027    0.027   0.00   0.01
+Allreduce           10    4      1    0.018    0.018    0.018   0.00   0.02
+Allreduce           10    5      1    0.024    0.024    0.024   0.00   0.09
+Allreduce           10    6      1    0.024    0.024    0.024   0.00   0.58
+Allreduce           10    7      1     0.03     0.03     0.03   0.00   0.18
+Allreduce           10    8      1    0.014    0.014    0.014   0.00   0.02
+Allreduce           10    9      1    0.025    0.025    0.025   0.00   0.02
+Allreduce           10   10      1    0.022    0.022    0.022   0.00   0.01
+Allreduce           10   11      1    0.029    0.029    0.029   0.00   0.01
+Allreduce           10    *     12     0.03   0.0216    0.009   0.00   0.01
+
+Allreduce           12    0      3  1.2e+03      400    0.008  77.07  99.69
+Allreduce           12    1      3      746      249    0.008  47.86  99.57
+Allreduce           12    2      3      437      146    0.008  28.06  99.29
+Allreduce           12    3      3      226     75.4    0.007  14.52  98.63
+Allreduce           12    4      3     92.1     30.7    0.006   5.91  96.07
+Allreduce           12    5      3       23     7.75    0.008   1.49  87.21
+Allreduce           12    6      3    0.172   0.0987    0.006   0.02   7.14
+Allreduce           12    7      3     13.7     4.59    0.006   0.88  80.98
+Allreduce           12    8      3     54.4     18.2    0.005   3.50  93.31
+Allreduce           12    9      3      129     43.2    0.008   8.31  97.85
+Allreduce           12   10      3      233     77.7    0.008  14.95  98.19
+Allreduce           12   11      3      401      134    0.005  25.70  99.10
+Allreduce           12    *     36  1.2e+03     98.8    0.005  19.02  98.83
+
+Allreduce           15    0      1    0.417    0.417    0.417   0.03   0.03
+Allreduce           15    1      1    0.328    0.328    0.328   0.02   0.04
+Allreduce           15    2      1    0.042    0.042    0.042   0.00   0.01
+Allreduce           15    3      1    0.309    0.309    0.309   0.02   0.13
+Allreduce           15    4      1    0.118    0.118    0.118   0.01   0.12
+Allreduce           15    5      1    0.467    0.467    0.467   0.03   1.75
+Allreduce           15    6      1    0.018    0.018    0.018   0.00   0.43
+Allreduce           15    7      1    0.196    0.196    0.196   0.01   1.15
+Allreduce           15    8      1    0.119    0.119    0.119   0.01   0.20
+Allreduce           15    9      1    0.148    0.148    0.148   0.01   0.11
+Allreduce           15   10      1    0.262    0.262    0.262   0.02   0.11
+Allreduce           15   11      1    0.177    0.177    0.177   0.01   0.04
+Allreduce           15    *     12    0.467    0.217    0.018   0.01   0.07
+
+Alltoall            13    0      1    0.138    0.138    0.138   0.01   0.01
+Alltoall            13    1      1     0.12     0.12     0.12   0.01   0.02
+Alltoall            13    2      1    0.142    0.142    0.142   0.01   0.03
+Alltoall            13    3      1    0.134    0.134    0.134   0.01   0.06
+Alltoall            13    4      1    0.124    0.124    0.124   0.01   0.13
+Alltoall            13    5      1    0.142    0.142    0.142   0.01   0.53
+Alltoall            13    6      1     0.13     0.13     0.13   0.01   3.14
+Alltoall            13    7      1    0.133    0.133    0.133   0.01   0.78
+Alltoall            13    8      1    0.122    0.122    0.122   0.01   0.21
+Alltoall            13    9      1    0.124    0.124    0.124   0.01   0.09
+Alltoall            13   10      1    0.142    0.142    0.142   0.01   0.06
+Alltoall            13   11      1    0.145    0.145    0.145   0.01   0.04
+Alltoall            13    *     12    0.145    0.133     0.12   0.01   0.04
+
+Alltoallv           11    0      1     2.08     2.08     2.08   0.13   0.17
+Alltoallv           11    1      1     2.09     2.09     2.09   0.13   0.28
+Alltoallv           11    2      1     1.62     1.62     1.62   0.10   0.37
+Alltoallv           11    3      1     2.06     2.06     2.06   0.13   0.90
+Alltoallv           11    4      1     2.04     2.04     2.04   0.13   2.13
+Alltoallv           11    5      1     2.05     2.05     2.05   0.13   7.70
+Alltoallv           11    6      1     2.07     2.07     2.07   0.13  49.84
+Alltoallv           11    7      1     2.08     2.08     2.08   0.13  12.22
+Alltoallv           11    8      1     2.06     2.06     2.06   0.13   3.54
+Alltoallv           11    9      1     1.64     1.64     1.64   0.10   1.24
+Alltoallv           11   10      1     2.11     2.11     2.11   0.14   0.89
+Alltoallv           11   11      1     2.18     2.18     2.18   0.14   0.54
+Alltoallv           11    *     12     2.18     2.01     1.62   0.13   0.67
+
+Reduce_scatter      14    0      1    0.026    0.026    0.026   0.00   0.00
+Reduce_scatter      14    1      1    0.028    0.028    0.028   0.00   0.00
+Reduce_scatter      14    2      1    0.032    0.032    0.032   0.00   0.01
+Reduce_scatter      14    3      1    0.034    0.034    0.034   0.00   0.01
+Reduce_scatter      14    4      1    0.033    0.033    0.033   0.00   0.03
+Reduce_scatter      14    5      1    0.036    0.036    0.036   0.00   0.14
+Reduce_scatter      14    6      1    0.039    0.039    0.039   0.00   0.94
+Reduce_scatter      14    7      1     0.04     0.04     0.04   0.00   0.24
+Reduce_scatter      14    8      1    0.041    0.041    0.041   0.00   0.07
+Reduce_scatter      14    9      1    0.044    0.044    0.044   0.00   0.03
+Reduce_scatter      14   10      1    0.045    0.045    0.045   0.00   0.02
+Reduce_scatter      14   11      1    0.046    0.046    0.046   0.00   0.01
+Reduce_scatter      14    *     12    0.046    0.037    0.026   0.00   0.01
+---------------------------------------------------------------------------
+@--- Callsite Message Sent statistics (all, sent bytes) -------------------
+---------------------------------------------------------------------------
+Name              Site Rank   Count       Max      Mean       Min       Sum
+Allreduce            1    0       1         8         8         8         8
+Allreduce            1    1       1         8         8         8         8
+Allreduce            1    2       1         8         8         8         8
+Allreduce            1    3       1         8         8         8         8
+Allreduce            1    4       1         8         8         8         8
+Allreduce            1    5       1         8         8         8         8
+Allreduce            1    6       1         8         8         8         8
+Allreduce            1    7       1         8         8         8         8
+Allreduce            1    8       1         8         8         8         8
+Allreduce            1    9       1         8         8         8         8
+Allreduce            1   10       1         8         8         8         8
+Allreduce            1   11       1         8         8         8         8
+Allreduce            1    *      12         8         8         8        96
+
+Allreduce            2    0       1         8         8         8         8
+Allreduce            2    1       1         8         8         8         8
+Allreduce            2    2       1         8         8         8         8
+Allreduce            2    3       1         8         8         8         8
+Allreduce            2    4       1         8         8         8         8
+Allreduce            2    5       1         8         8         8         8
+Allreduce            2    6       1         8         8         8         8
+Allreduce            2    7       1         8         8         8         8
+Allreduce            2    8       1         8         8         8         8
+Allreduce            2    9       1         8         8         8         8
+Allreduce            2   10       1         8         8         8         8
+Allreduce            2   11       1         8         8         8         8
+Allreduce            2    *      12         8         8         8        96
+
+Allreduce            3    0       1         8         8         8         8
+Allreduce            3    1       1         8         8         8         8
+Allreduce            3    2       1         8         8         8         8
+Allreduce            3    3       1         8         8         8         8
+Allreduce            3    4       1         8         8         8         8
+Allreduce            3    5       1         8         8         8         8
+Allreduce            3    6       1         8         8         8         8
+Allreduce            3    7       1         8         8         8         8
+Allreduce            3    8       1         8         8         8         8
+Allreduce            3    9       1         8         8         8         8
+Allreduce            3   10       1         8         8         8         8
+Allreduce            3   11       1         8         8         8         8
+Allreduce            3    *      12         8         8         8        96
+
+Allreduce            4    0       1         8         8         8         8
+Allreduce            4    1       1         8         8         8         8
+Allreduce            4    2       1         8         8         8         8
+Allreduce            4    3       1         8         8         8         8
+Allreduce            4    4       1         8         8         8         8
+Allreduce            4    5       1         8         8         8         8
+Allreduce            4    6       1         8         8         8         8
+Allreduce            4    7       1         8         8         8         8
+Allreduce            4    8       1         8         8         8         8
+Allreduce            4    9       1         8         8         8         8
+Allreduce            4   10       1         8         8         8         8
+Allreduce            4   11       1         8         8         8         8
+Allreduce            4    *      12         8         8         8        96
+
+Allreduce            5    0       1         8         8         8         8
+Allreduce            5    1       1         8         8         8         8
+Allreduce            5    2       1         8         8         8         8
+Allreduce            5    3       1         8         8         8         8
+Allreduce            5    4       1         8         8         8         8
+Allreduce            5    5       1         8         8         8         8
+Allreduce            5    6       1         8         8         8         8
+Allreduce            5    7       1         8         8         8         8
+Allreduce            5    8       1         8         8         8         8
+Allreduce            5    9       1         8         8         8         8
+Allreduce            5   10       1         8         8         8         8
+Allreduce            5   11       1         8         8         8         8
+Allreduce            5    *      12         8         8         8        96
+
+Allreduce            6    0       1         8         8         8         8
+Allreduce            6    1       1         8         8         8         8
+Allreduce            6    2       1         8         8         8         8
+Allreduce            6    3       1         8         8         8         8
+Allreduce            6    4       1         8         8         8         8
+Allreduce            6    5       1         8         8         8         8
+Allreduce            6    6       1         8         8         8         8
+Allreduce            6    7       1         8         8         8         8
+Allreduce            6    8       1         8         8         8         8
+Allreduce            6    9       1         8         8         8         8
+Allreduce            6   10       1         8         8         8         8
+Allreduce            6   11       1         8         8         8         8
+Allreduce            6    *      12         8         8         8        96
+
+Allreduce            7    0       1         8         8         8         8
+Allreduce            7    1       1         8         8         8         8
+Allreduce            7    2       1         8         8         8         8
+Allreduce            7    3       1         8         8         8         8
+Allreduce            7    4       1         8         8         8         8
+Allreduce            7    5       1         8         8         8         8
+Allreduce            7    6       1         8         8         8         8
+Allreduce            7    7       1         8         8         8         8
+Allreduce            7    8       1         8         8         8         8
+Allreduce            7    9       1         8         8         8         8
+Allreduce            7   10       1         8         8         8         8
+Allreduce            7   11       1         8         8         8         8
+Allreduce            7    *      12         8         8         8        96
+
+Allreduce            8    0       1         4         4         4         4
+Allreduce            8    1       1         4         4         4         4
+Allreduce            8    2       1         4         4         4         4
+Allreduce            8    3       1         4         4         4         4
+Allreduce            8    4       1         4         4         4         4
+Allreduce            8    5       1         4         4         4         4
+Allreduce            8    6       1         4         4         4         4
+Allreduce            8    7       1         4         4         4         4
+Allreduce            8    8       1         4         4         4         4
+Allreduce            8    9       1         4         4         4         4
+Allreduce            8   10       1         4         4         4         4
+Allreduce            8   11       1         4         4         4         4
+Allreduce            8    *      12         4         4         4        48
+
+Allreduce            9    0       1         4         4         4         4
+Allreduce            9    1       1         4         4         4         4
+Allreduce            9    2       1         4         4         4         4
+Allreduce            9    3       1         4         4         4         4
+Allreduce            9    4       1         4         4         4         4
+Allreduce            9    5       1         4         4         4         4
+Allreduce            9    6       1         4         4         4         4
+Allreduce            9    7       1         4         4         4         4
+Allreduce            9    8       1         4         4         4         4
+Allreduce            9    9       1         4         4         4         4
+Allreduce            9   10       1         4         4         4         4
+Allreduce            9   11       1         4         4         4         4
+Allreduce            9    *      12         4         4         4        48
+
+Allreduce           10    0       1         8         8         8         8
+Allreduce           10    1       1         8         8         8         8
+Allreduce           10    2       1         8         8         8         8
+Allreduce           10    3       1         8         8         8         8
+Allreduce           10    4       1         8         8         8         8
+Allreduce           10    5       1         8         8         8         8
+Allreduce           10    6       1         8         8         8         8
+Allreduce           10    7       1         8         8         8         8
+Allreduce           10    8       1         8         8         8         8
+Allreduce           10    9       1         8         8         8         8
+Allreduce           10   10       1         8         8         8         8
+Allreduce           10   11       1         8         8         8         8
+Allreduce           10    *      12         8         8         8        96
+
+Allreduce           12    0       3         4         4         4        12
+Allreduce           12    1       3         4         4         4        12
+Allreduce           12    2       3         4         4         4        12
+Allreduce           12    3       3         4         4         4        12
+Allreduce           12    4       3         4         4         4        12
+Allreduce           12    5       3         4         4         4        12
+Allreduce           12    6       3         4         4         4        12
+Allreduce           12    7       3         4         4         4        12
+Allreduce           12    8       3         4         4         4        12
+Allreduce           12    9       3         4         4         4        12
+Allreduce           12   10       3         4         4         4        12
+Allreduce           12   11       3         4         4         4        12
+Allreduce           12    *      36         4         4         4       144
+
+Allreduce           15    0       1         8         8         8         8
+Allreduce           15    1       1         8         8         8         8
+Allreduce           15    2       1         8         8         8         8
+Allreduce           15    3       1         8         8         8         8
+Allreduce           15    4       1         8         8         8         8
+Allreduce           15    5       1         8         8         8         8
+Allreduce           15    6       1         8         8         8         8
+Allreduce           15    7       1         8         8         8         8
+Allreduce           15    8       1         8         8         8         8
+Allreduce           15    9       1         8         8         8         8
+Allreduce           15   10       1         8         8         8         8
+Allreduce           15   11       1         8         8         8         8
+Allreduce           15    *      12         8         8         8        96
+
+Alltoall            13    0       1         4         4         4         4
+Alltoall            13    1       1         4         4         4         4
+Alltoall            13    2       1         4         4         4         4
+Alltoall            13    3       1         4         4         4         4
+Alltoall            13    4       1         4         4         4         4
+Alltoall            13    5       1         4         4         4         4
+Alltoall            13    6       1         4         4         4         4
+Alltoall            13    7       1         4         4         4         4
+Alltoall            13    8       1         4         4         4         4
+Alltoall            13    9       1         4         4         4         4
+Alltoall            13   10       1         4         4         4         4
+Alltoall            13   11       1         4         4         4         4
+Alltoall            13    *      12         4         4         4        48
+---------------------------------------------------------------------------
+@--- End of Report --------------------------------------------------------
+---------------------------------------------------------------------------

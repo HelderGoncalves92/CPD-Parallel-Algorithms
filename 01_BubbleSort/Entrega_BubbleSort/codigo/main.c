@@ -16,98 +16,49 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#include <pthread.h>
 #include <omp.h>
 
 /* For random list, 0 <= keys < RMAX */
 const int RMAX = 100;
-int  ordered = 0, n, list_length;
-int* sectionsOffset;
-
 int num_threads;
-pthread_mutex_t *mutex;
-
 
 void Usage(char* prog_name);
-void Get_args(int argc, char* argv[], char* g_i_p);
-void Generate_list(int a[]);
-void Print_list(int a[], char* title);
-void Read_list(int a[]);
-void* Bubble_sort(void*);
-void Bubble_sort_Single(int a[]);
-int testeOrder(int a[]);
+void Get_args(int argc, char* argv[], int* n_p, char* g_i_p);
+void Generate_list(int a[], int n);
+void Print_list(int a[], int n, char* title);
+void Read_list(int a[], int n);
+void Bubble_sort(int a[], int n);
+void Bubble_sort_Single(int a[], int n);
+int testeOrder(int a[], int n);
 
 /*-----------------------------------------------------------------*/
-
-
-
-pthread_t* preparePthreads(){
-    
-    pthread_t* thread_handles;
-    int i, stride;
-    
-    //Pthreads - Memory Alloc
-    thread_handles = malloc(num_threads * sizeof(pthread_t));
-    mutex = malloc((num_threads+1) * sizeof(pthread_mutex_t));
-    
-    for(i=0; i <= num_threads; i++){
-        pthread_mutex_init(&mutex[i], NULL);
-    }
-    
-    //Prepare Sections
-    stride = n / num_threads;
-    sectionsOffset = (int*)malloc(num_threads*sizeof(int));
-    
-    for(i=0; i < num_threads;i++)
-        sectionsOffset[i] = (i+1)*stride;
-    
-    return thread_handles;
-}
-
-
-
 int main(int argc, char* argv[]) {
-    
+    int  n;
     char g_i;
-    int *a, thread;
+    int* a;
+
+    //Get Num threads
+    #pragma omp parallel
+    {num_threads = omp_get_num_threads();}
     
-    pthread_t *thread_handles = NULL;
-    
-    //Read args and Generate Array
-    Get_args(argc, argv, &g_i);
+    Get_args(argc, argv, &n, &g_i);
     a = (int*) malloc(n*sizeof(int));
     if (g_i == 'g') {
-        Generate_list(a);
-        //Print_list(a, n, "Before sort");
+        Generate_list(a, n);
+       // Print_list(a, n, "Before sort");
     } else {
-        Read_list(a);
+        Read_list(a, n);
     }
     
-    if (num_threads == 1) {
-        double time = omp_get_wtime();
-        Bubble_sort_Single(a);
-        printf("%f\n",omp_get_wtime()-time);
-    }else{
-        
-        //Init all configurations
-        thread_handles = preparePthreads();
-        
-        double time = omp_get_wtime();
-        
-        //Pthreads Start
-        for(thread=0; thread < num_threads; thread++){
-            pthread_create(&thread_handles[thread], NULL, Bubble_sort, (void*)a);
-        }
-        
-        //Pthreads Join
-        for(thread=0; thread < num_threads; thread++){
-            pthread_join(thread_handles[thread], NULL);
-        }
-        printf("%f\n",omp_get_wtime()-time);
-    }
+    double time = omp_get_wtime();
+    if(num_threads==1)
+        Bubble_sort_Single(a,n);
+    else
+        Bubble_sort(a, n);
     
-    //To test if was ordered
-   // if(testeOrder(a)) printf("OK!!\n"); else printf("NÂO OK!!\n");
+    printf("%f\n",omp_get_wtime()-time);
+    
+   // if(testeOrder(a,n)) printf("OK!!\n"); else printf("NÂO OK!!\n");
    // Print_list(a, n, "After sort");
     
     free(a);
@@ -120,8 +71,7 @@ int main(int argc, char* argv[]) {
  * Purpose:   Summary of how to run program
  */
 void Usage(char* prog_name) {
-    fprintf(stderr, "usage:   %s <t> <n> <g|i>\n", prog_name);
-    fprintf(stderr, "   t:   number of threads\n");
+    fprintf(stderr, "usage:   %s <n> <g|i>\n", prog_name);
     fprintf(stderr, "   n:   number of elements in list\n");
     fprintf(stderr, "  'g':  generate list using a random number generator\n");
     fprintf(stderr, "  'i':  user input list\n");
@@ -134,17 +84,15 @@ void Usage(char* prog_name) {
  * In args:   argc, argv
  * Out args:  n_p, g_i_p
  */
-void Get_args(int argc, char* argv[], char* g_i_p) {
-    if (argc != 4 ) {
+void Get_args(int argc, char* argv[], int* n_p, char* g_i_p) {
+    if (argc != 3 ) {
         Usage(argv[0]);
         exit(0);
     }
+    *n_p = atoi(argv[1]);
+    *g_i_p = argv[2][0];
     
-    num_threads = atoi(argv[1]);
-    n = atoi(argv[2]);
-    *g_i_p = argv[3][0];
-    
-    if (num_threads <= 0 || n <= 0 || (*g_i_p != 'g' && *g_i_p != 'i') ) {
+    if (*n_p <= 0 || (*g_i_p != 'g' && *g_i_p != 'i') ) {
         Usage(argv[0]);
         exit(0);
     }
@@ -157,7 +105,7 @@ void Get_args(int argc, char* argv[], char* g_i_p) {
  * In args:   n
  * Out args:  a
  */
-void Generate_list(int a[]) {
+void Generate_list(int a[], int n) {
     int i;
     
     srandom(0);
@@ -171,7 +119,7 @@ void Generate_list(int a[]) {
  * Purpose:   Print the elements in the list
  * In args:   a, n
  */
-void Print_list(int a[], char* title) {
+void Print_list(int a[], int n, char* title) {
     int i;
     
     printf("%s:\n", title);
@@ -187,7 +135,7 @@ void Print_list(int a[], char* title) {
  * In args:   n
  * Out args:  a
  */
-void Read_list(int a[]) {
+void Read_list(int a[], int n) {
     int i;
     
     printf("Please enter the elements of the list\n");
@@ -195,7 +143,7 @@ void Read_list(int a[]) {
         scanf("%d", &a[i]);
 }  /* Read_list */
 
-int testeOrder(int a[]){
+int testeOrder(int a[], int n){
     int i;
     for(i=0; i<n-1;i++){
         if(a[i]>a[i+1]) return 0;
@@ -210,19 +158,33 @@ int testeOrder(int a[]){
  * In args:      n
  * In/out args:  a
  */
-void* Bubble_sort(void* array  /* in/out */) {
-    
-    int *a = (int*)array;
-    list_length=n;
-    
-    
+void Bubble_sort(
+                 int  a[]  /* in/out */,
+                 int  n    /* in     */) {
+
+    int list_length = n;
+    int ordered = 0;
     int i, temp;
+
+    int stride = n / num_threads;
+    int sectionsOffset[num_threads];
+    
+    for(i=0; i < num_threads;i++)
+        sectionsOffset[i] = (i+1)*stride;
+    
+    
+    omp_lock_t locks[num_threads+1];
+    for(i=0; i<=num_threads; i++)
+        omp_init_lock(&locks[i]);
+
+#pragma omp parallel shared(list_length, sectionsOffset, locks, ordered) private(i, temp)
+{
     int section;
     int change;
 
     while(!ordered){
         section = change = 0;
-        pthread_mutex_lock(&mutex[0]);
+        omp_set_lock(&locks[0]);
         
         for (i = 0; i < list_length-1; i++){
             if (a[i] > a[i+1]) {
@@ -233,20 +195,22 @@ void* Bubble_sort(void* array  /* in/out */) {
                 
             }
             if(i == sectionsOffset[section]){
-                pthread_mutex_lock(&mutex[++section]);
-                pthread_mutex_unlock(&mutex[section-1]);
+                omp_set_lock(&locks[++section]);
+                omp_unset_lock(&locks[section-1]);
             }
         }
         if(change == 0) ordered=1;
         list_length--;
 
-        pthread_mutex_unlock(&mutex[section]);
-    }
-    return NULL;
+        omp_unset_lock(&locks[section]);
 
+    }
+}
 }  /* Bubble_sort */
 
-void Bubble_sort_Single(int  a[]  /* in/out */) {
+void Bubble_sort_Single(
+                 int  a[]  /* in/out */,
+                 int  n    /* in     */) {
     int list_length, i, temp;
     
     for (list_length = n; list_length >= 2; list_length--)

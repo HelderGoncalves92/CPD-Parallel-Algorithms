@@ -1,0 +1,153 @@
+NAS Parallel Benchmarks
+Helder Jose Alves Goncalves PG28505 Mestrado em Engenharia Informatica Universidade do Minho
+Em sistemas de computacao de alto desempenho, muito frequentemente, os recursos disponibilizados excedem largamente os existentes nos sistemas pessoais.
+Todavia, as aplicacoes desenvolvidas para correr naqueles sistemas, para alem de terem de tomar em consideracao as caracterısticas do equipamento, eventualmente heterogeneo, tem de tomar em consideracao o ambiente geral de execucao que podera incluir, em cada momento, outras aplicacoes e utilizadores que irao concorrer no acesso e utilizacao dos mesmos recursos.
+O que significa que uma aplicacao desenvolvida, inicialmente, para correr numa plataforma que corresponde a um modelo abstracto de execucao, fica sujeita a um conjunto alargado de condicionantes que podem ser absolutamente determinantes para o desempenho final da aplicacao.
+Cumulativamente, porque as aplicacoes tem normalmente, um tempo de vida muito superior ao do equipamento que alem disso evolui muito rapidamente, criam-se facilmente ambientes cada vez mais heterogeneos que agravam as condicoes de execucao das aplicacoes.
+Categories and Subject Descriptors: I.3.7 [Computer Graphics]: Three-Dimensional Graphics and Realism—Animation; I.3.5 [Computer Graphics]: Computational Geometry and Object Modeling—Physically based modeling
+General Terms: Experimentation, Human Factors
+Additional Key Words and Phrases: Face animation, image-based modelling, iris animation, photorealism, physiologically-based modelling
+1. INTRODUCAO
+Com vista a explorar de forma extensiva os atuais ambientes de clustering sera necessario compilar, submeter e executar aplicacoes e visualizar os resultados das execucoes. Por outras palavras, ira ser feito um benchmark ao sistema, que consiste em executar uma aplicacao, a fim de avaliar o seu desempenho, normalmente executando uma serie de testes padroes.
+Normalmente, benchmarking e associado a` avaliacao das caracterısticas de performance de um determinado hardware, mas ha circunstancias em que esta tecnica tambem e aplicavel a software. Neste artigo nao sera abordado a aplicacao desta tecnica a aplicacoes, ficando assim, somente pelo hardware.
+Estes tambem permitem fazer a comparacao da performance de varios subsistemas dentre as diferentes arquiteturas e sistemas.
+Com a evolucao das arquiteturas de computadores, ficou cada vezmaisdifıcilcompararaperformancedediferentessistemasde computacao somente olhando suas especificacoes. Por isso, testes foram desenvolvidos para serem feitos em diferentes sistemas, permitindo que esses resultados possam ser comparados entre as diferentes arquiteturas.
+A monitorizacao de sistemas e um ponto muito importante. Actualmente, os sistemas de monitorizacao podem ser considerados, como uma peca central na produtividade. Tendo esta criticidade sempre presente, e extremamente importante a adopcao quer de sistemas de monitorizacao, quer de uma postura pro-activa na analise dos mesmos. Esta e a unica forma de garantir que todos os compo-
+nentes garantam a operacionalidade do sistema perante os diversos testes a que sao sujeitos.
+2. NAS PARALLEL BENCHMARKS
+O NAS Parallel Benchmarks (NBP) e um pequeno conjunto de programas projectado para ajudar a avaliar o desempenho de supercomputadores paralelos.
+Os benchmarks sao derivados das aplicacoes de dinamica de fluidos computacional e consistem em cinco kernels e tres pseudoaplicacoes da especificacao original. Este conjunto de aplicacoes foi construıdo para conter os mais diversos generos de testes como, benchmarks para malha nao estruturada adaptativa, aplicacoes I / O, multi-zona paralelas e grades computacionais. Os diferentes tamanhos para cada uma das classes sera aplicado dependo da classe que e escolhida para um determinado teste.
+2.1 Tipos de Teste
+Como foi referido acima, existem varios tipos de testes, em que cada um deles tem um tem um objectivo diferente. Os oito testes originais especificados em NPB 1 tentam imitar as os diferentes movimentos de dados das aplicacoes CFD:
+—Cinco kernels
+(1) IS Integer Sort, acesso aleatorio de memoria
+(2) EP Embarrassingly Parallel
+(3) CG Conjugate Gradient, irregular acessos a` memoria e
+comunicac ao
+(4) MG Multi-Grid numa sequencia de malhas, pequena e
+grande distancia de comunicacao
+(5) FT-Discrete3DFastFourierTransform,comunicacaoen-
+tre todos
+—Pseudo-aplicacoes
+(1) BT-ResolverBlockTri-diagonal
+(2) SP-ResolverScalarPenta-diagonal
+(3) LU Resover Lower-Upper Gauss-Seidel
+Existe uma grande variedade de possıveis testes que se podem efectuar, mas infelizmente o tempo e escasso e este artigo so faz referencia a tres dos testes apresentados, que sao os IS, MG e FT.
+3. ARQUITECTURAS
+O ambiente de execucao disponıvel para a realizacao dos testes e bastante rico. Assim estudar o comportamento dos diferentes hardwares/arquitecturas torna-se uma tarefa mais interessante. Neste artigo sao exploradas em particular dois modelos de processadores.Comrecursoaocomando$papi availepossıveldescobrir qual e o modelo, mas e gracas ao comando $lstopo que e capazes de ’mostrar’ a arquitectura em que se esta a trabalhar.
+￼ACM Transactions on Graphics, Vol. 1, No. 1, Article 1, Publication date: Marco 2015.
+2 • MEI Computacao Paralela e Distribuıda 3.1 Compute-641
+OprimeiromodelocomquenosdeparamoseoIntelXeonE52650v2.Epossıveldescobrirqualeoseumodelopelocomando mostrado em baixo:
+$papi_avail | grep Model
+Model: Intel(R) Xeon(R) CPU E5-2650 v2 @ 2.40GHz (62)
+CPUID Info: Family: 6  Model: 62  Stepping: 4
+Agora que se sabe qual e o modelo e necessario detalhar as suas especificacoes para perceber com o que e que se esta a lidar:
+3.2 Compute-662
+OprimeiromodelocomquenosdeparamoseoIntelXeonE52695v2.Epossıveldescobrirqualeoseumodelopelocomando mostrado em baixo:
+$papi_avail | grep Model
+Model: Intel(R) Xeon(R) CPU E5-2650 v2 @ 2.40GHz (62)
+CPUID Info: Family: 6  Model: 62  Stepping: 4
+Agora que se sabe qual e o modelo e necessario detalhar as suas especificacoes para perceber com o que e que se esta a lidar:
+￼￼￼CPU Model:
+￼Intel⃝R Xeon⃝R ProcessorE5-2650v2
+￼￼Instruction Set:
+￼64-bit AVX
+￼￼No de Sockets:
+￼2
+￼￼No de Cores:
+￼8
+￼￼No de Threads:
+￼16
+￼￼Frequencia Base:
+￼2.6 GHz
+￼￼Max Frequencia:
+￼3.4 GHz
+￼￼Tipo de memoria:
+￼DDR3
+￼￼Max Largura de Banda
+￼59.7 GB/s
+￼￼Cache L3
+￼20 MB
+￼￼Cache L2
+￼256 KB
+￼￼Cache L1d/L1i
+￼32KB / 32KB
+￼￼￼CPU Model:
+￼Intel⃝R Xeon⃝R ProcessorE5-2695v2
+￼￼Instruction Set:
+￼64-bit AVX
+￼￼No de Sockets:
+￼2
+￼￼No de Cores:
+￼12
+￼￼No de Threads:
+￼24
+￼￼Frequencia Base:
+￼2.4 GHz
+￼￼Max Frequencia:
+￼3.2 GHz
+￼￼Tipo de memoria:
+￼DDR3
+￼￼Max Largura de Banda
+￼59.7 GB/s
+￼￼Cache L3
+￼30MB
+￼￼Cache L2
+￼256KB
+￼￼Cache L1d/L1i
+￼32KB / 32KB
+￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼Table I.
+A partir destes dados podemos fazer algumas contas de modo a calcularmos o pico de desempenho deste modelo, com base na seguinte formula:
+2.6×4 =332.8GFLOPS.Paraajudaraentendertambempode 1
+consultar a Figura 1 que ilustra esta arquitectura.
+Intel⃝R Xeon⃝R Processor E5-2650 v2
+ACM Transactions on Graphics, Vol. 1, No. 1, Article 1, Publication date: Marco 2015.
+Table II.
+Fazendo algumas contas sobre os dados da tabela e tendo como base a formula (1) conseguimos chegar ao seguinte pico de desempenho do modelo referido neste capıtulo. Sendo assim, temos: FLOPS = 2×24×2.4× 4 = 460.8GFLOPS.
+1
+Para ajudar a entender tambem pode consultar a figura 1 que ilustra esta arquitectura.
+Fig. 2. Intel⃝R Xeon⃝R Processor E5-2695 v2
+3.3 Compacao dos modelos
+Ambos os modelos apresentados sao bastante parecidos um com outro, mas e possıvel fazer uma pequena previsao do comportamento destes dois modelos perante a execucao de uma determinada aplicacao. Sabemos que ambos os processadores pertencem a` mesma famılia e inclusive a` mesma geracao, fazendo desta forma que ambos tenham a mesma micro-arquitectura/tecnologia, mais especificamente eles sao processadores Intel Sandy Bridge.
+￼F LOP S = sockets × threads × clock ×
+Desta forma temos o seguinte resultado: F LOP S = 2 × 16 ×
+FLOPs
+cycle (1)
+￼￼￼￼￼Fig. 1.
+Tendo em consideracao os picos de desempenho de cada um deles,temosimediatamenteaideiaqueoE5-2695ebastantemelhor que o seu familiar, tendo os seus 460.8GFLOPS contra 332.8GF LOP S. Mas esta diferenca faz com que o E5-2695 seja sempre melhor!? Claro que nao, se reparar com atencao o E5-2650 tem uma frequencia base mais elevado que o seu concorrente, 2.6 GHz. Isto revela-se sem duvida uma vantagem para aplicacoes com um unico fio de execucao, mas claro que quando colocamos programas com varios fios de execucao o E5-2695 revela-se uma mais valia.
+Estas sao apenas consideracoes iniciais, que certamente se irao revelar nos varios testes realizados.
+4. COMPILADORES
+Um compilador e o programa responsavel por traduzir o codigo fonte para outra linguagem semanticamente equivalente, mas escrita numa linguagem mais simpatica para a maquina, isto e, traduzir o codigo fonte de uma linguagem de programacao de alto nıvel para uma linguagem de programacao de baixo nıvel, por exemplo Assembly ou codigo maquina.
+Actualmente existem duas grandes companhias que produzem compiladores e se debatem, na luta da preferencia dos utilizadores. Elas sao a GNU que se denomina pela criacao de software gratuito estando deste modo na maioria de todos os sistemas UNIX e a Intel Compilers que infelizmente e paga, limitando o seu acesso a muitos utilizadores.
+Serao usados dois compiladores de cada um deles, em que o GNU Compiler Collection (GCC) e o Intel C++ Compiler (ICC) sao usados para compilar a linguagem C, enquanto que o GNU Compiler Collection (GFortran) e o Intel Fortran Compiler (IFort) sao usados para compilar a linguagem Fortran.
+Para explorar o impacto que a execucao paralela tem em cada um dos testes executados e necessario o recurso a`s bibliotecas OpenMP (Open Multi-Processing) e OpenMPI ( Message Passing Interface), ja abordadas no semestre anterior.
+As versoes usadas neste trabalho tem um grande importancia para mais tarde possibilitar a discussao de resultados entre as diferentes versoes do mesmo compilador. Assim, ficam aqui registadas as versoes usadas:
+—Intel C++ Compiler (ICC) 13.0.1 —Intel Fortran Compiler (ICC) 13.0.1 —GNU Compiler Collection (ICC) 4.9.0 — OpenMPI Ethernet e Mininet 1.8.2
+5. TESTES REALIZADOS
+De forma a possibilitar a comparacao de resultados entre os varios tipos de teste, classes, compiladores e optimizacoes usadas em cada um dos testes a serem realizados, eles dever reger-se a um conjunto de testes pre-estabelecido para cada um dos tipos existentes. Alem de estarem presos a um conjunto de testes pre-estabelecido, cada um deles sera repetido tres vezes de forma a conseguirmos uma maior coerencia entre os dados obtidos. Estas repeticoes so se aplicam nos testes de obtencao do tempo de execucao de uma aplicacao. Ja os testes da segunda parte do trabalho, que sao os de monitorizacao de recursos so sao efectuados uma unica vez.
+Desta forma, os testes serao regidos por:
+— Serial —GCC -O —GCC -O2
+—ICC -O
+—ICC -O2
+—OpenMP Para 2, 4, 6, 8, 10, 12, 16, 20, 24, 28, 32 threads
+—GCC -O —GCC -O2 —ICC -O —ICC -O2
+—OpenMPI Para 2, 4, 8, 16, 32 processos sob Ethernet e Mininet —GCC -O
+—GCC -O2
+—ICC -O
+—ICC -O2
+Estes testes estao de acordo a um programa em linguagem C, mas a mesma genero de testes de aplica para os programas em Fortran.
+6. CLASSE ’IS’
+6.1 Serial
+6.2 OpenMP
+6.3 OpenMPI
+6.4 OpenMP vs OpenMPI 7. CLASSE ’MG’
+7.1 Serial
+7.2 OpenMP
+7.3 OpenMPI
+7.4 OpenMP vs OpenMPI 8. CLASSE ’FT’
+8.1 Serial
+8.2 OpenMP
+8.3 OpenMPI
+8.4 OpenMP vs OpenMPI ACKNOWLEDGMENTS
+
+-

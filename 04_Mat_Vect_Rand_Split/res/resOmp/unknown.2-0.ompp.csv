@@ -1,0 +1,107 @@
+##BEG header separator=,
+Start Date,Wed Jun 24 17:44:24 2015
+End Date,Wed Jun 24 17:44:24 2015
+Duration,0.092289,sec
+Application Name,unknown
+Type of Report,final
+Thread Count,2
+ompP Version Major,0
+ompP Version Minor,8
+ompP Version Revision,99
+ompP Build Date,Nov 16 2014 11:48:18
+PAPI Support,available
+Max Counters,4
+PAPI Active,yes
+Used Counters,3
+OMPP_CTR1,PAPI_LD_INS
+OMPP_CTR2,PAPI_ST_INS
+OMPP_CTR3,not set
+OMPP_CTR4,PAPI_SR_INS
+Max Evaluators,4
+Used Evaluators,0
+OMPP_EVAL1,not set
+OMPP_EVAL2,not set
+OMPP_EVAL3,not set
+OMPP_EVAL4,not set
+##END header
+##BEG region overview
+PARALLEL,1
+R00001,PARALLEL,main.cpp,197,209,
+LOOP,1
+R00002,LOOP,main.cpp,201,208,
+##END region overview
+
+##BEG ompp callgraph
+Inclusive,(%),Exclusive,(%)
+0.092289,100.0,0.029196,31.635442,0,[unknown: 2 threads]
+0.063093,68.364558,0.000377,0.408047,1,R00001,PARALLEL,main.cpp,197,209,
+0.062716,67.956511,0.062716,67.956511,2,R00002,LOOP,main.cpp,201,208,
+##END ompp callgraph
+
+##BEG flat region profiles
+##BEG R00001 flat profile
+R00001,PARALLEL,main.cpp,197,209,
+TID,execT,execC,bodyT,exitBarT,startupT,shutdwnT,taskT,PAPI_LD_INS,PAPI_ST_INS,PAPI_SR_INS
+0,0.063089,1,0.062919,0.000007,0.000151,0.000011,0.000000,72334262,113362872,36020140
+1,0.063089,1,0.062629,0.000076,0.000371,0.000012,0.000000,72023383,118823427,36000819
+SUM,0.126178,2,0.125548,0.000083,0.000522,0.000023,0.000000,144357645,232186299,72020959
+##END R00001 flat profile
+
+##BEG R00002 flat profile
+R00002,LOOP,main.cpp,201,208,
+TID,execT,execC,bodyT,exitBarT,taskT,PAPI_LD_INS,PAPI_ST_INS,PAPI_SR_INS
+0,0.062815,1,0.052508,0.010306,0.000000,72007386,108432679,36000202
+1,0.062601,1,0.062577,0.000023,0.000000,72021387,118792295,36000202
+SUM,0.125416,2,0.115085,0.010329,0.000000,144028773,227224974,72000404
+##END R00002 flat profile
+
+##END flat region profiles
+
+##BEG callgraph region profiles
+##BEG R00001 callgraph profile
+[*00],unknown
+[+01],R00001,PARALLEL,main.cpp,197,209,
+TID,execT,execC,bodyT/I,bodyT/E,exitBarT,startupT,shutdwnT,taskT,PAPI_LD_INS/I,PAPI_LD_INS/E,PAPI_ST_INS/I,PAPI_ST_INS/E,PAPI_SR_INS/I,PAPI_SR_INS/E
+0,0.063093,1,0.062922,0.000100,0.000016,0.000143,0.000011,0.000000,72334244,326921,113363387,4933596,36020140,19940
+1,0.063093,1,0.062635,0.000024,0.000082,0.000364,0.000011,0.000000,72023342,2018,118822563,32907,36000819,619
+SUM,0.126186,2,0.125557,0.000124,0.000098,0.000507,0.000022,0.000000,144357586,328939,232185950,4966503,72020959,20559
+##END R00001 callgraph profile
+
+##BEG R00002 callgraph profile
+[*00],unknown
+[+01],R00001,PARALLEL,main.cpp,197,209,
+[=02],R00002,LOOP,main.cpp,201,208,
+TID,execT,execC,bodyT/I,bodyT/E,exitBarT,taskT,PAPI_LD_INS/I,PAPI_LD_INS/E,PAPI_ST_INS/I,PAPI_ST_INS/E,PAPI_SR_INS/I,PAPI_SR_INS/E
+0,0.062822,1,0.052497,0.052497,0.010323,0.000000,72007323,72007323,108429791,108429791,36000200,36000200
+1,0.062611,1,0.062563,0.062563,0.000037,0.000000,72021324,72021324,118789656,118789656,36000200,36000200
+SUM,0.125433,2,0.115060,0.115060,0.010360,0.000000,144028647,144028647,227219447,227219447,72000400,72000400
+##END R00002 callgraph profile
+
+##END callgraph region profiles
+
+##BEG overhead analysis report
+Total runtime (wallclock) [secs],0.092289
+Number of threads,2
+Number of parallel regions,1
+Parallel coverage [secs],0.063089
+Parallel coverage [percent],68.360166
+
+##BEG parallel regions sorted by wallclock time
+,Type,Wallclock,(%),PAPI_LD_INS,PAPI_ST_INS,PAPI_SR_INS
+R00001,PARALLEL,0.063089,68.360166,0,0,0
+SUM,0.063089,,68.360166,0,0,0
+##END parallel regions sorted by wallclock time
+
+##BEG overheads for parallel region
+,Total,Ovhds,(%),Synch,(%),Imbal,(%),Limpar,(%),Mgmt,(%)
+R00001,0.126178,0.010987,8.707589,0.000000,0.000000,0.010458,8.288299,0.000000,0.000000,0.000529,0.419290
+##END overheads for parallel region
+
+##BEG overheads for whole program
+,Total,Ovhds,(%),Synch,(%),Imbal,(%),Limpar,(%),Mgmt,(%)
+R00001,0.126178,0.010987,5.952522,0.000000,0.000000,0.010458,5.665895,0.000000,0.000000,0.000529,0.286627
+SUM,0.126178,0.010987,5.952522,0.000000,0.000000,0.010458,5.665895,0.000000,0.000000,0.000529,0.286627
+##END overheads for whole program
+
+##END overhead analysis report
+

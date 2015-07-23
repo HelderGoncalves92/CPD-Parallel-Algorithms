@@ -1,0 +1,87 @@
+##BEG header separator=,
+Start Date,Wed Jun 24 16:22:05 2015
+End Date,Wed Jun 24 16:22:05 2015
+Duration,0.064856,sec
+Application Name,unknown
+Type of Report,final
+Thread Count,4
+ompP Version Major,0
+ompP Version Minor,8
+ompP Version Revision,99
+ompP Build Date,Nov 16 2014 11:48:18
+PAPI Support,available
+Max Counters,4
+PAPI Active,yes
+Used Counters,4
+OMPP_CTR1,PAPI_L1_TCM
+OMPP_CTR2,PAPI_L2_TCM
+OMPP_CTR3,PAPI_L3_TCM
+OMPP_CTR4,PAPI_TOT_INS
+Max Evaluators,4
+Used Evaluators,0
+OMPP_EVAL1,not set
+OMPP_EVAL2,not set
+OMPP_EVAL3,not set
+OMPP_EVAL4,not set
+##END header
+##BEG region overview
+USER REGION,1
+R00001,USER REGION,pthreads.cpp,92,105,enum
+##END region overview
+
+##BEG ompp callgraph
+Inclusive,(%),Exclusive,(%)
+0.064856,100.0,0.033061,50.975829,0,[unknown: 4 threads]
+0.031795,49.024171,0.031795,49.024171,1,R00001,USER REGION,pthreads.cpp,92,105,enum
+##END ompp callgraph
+
+##BEG flat region profiles
+##BEG R00001 flat profile
+R00001,USER REGION,pthreads.cpp,92,105,enum
+TID,execT,execC,PAPI_L1_TCM,PAPI_L2_TCM,PAPI_L3_TCM,PAPI_TOT_INS
+0,0.031820,1,2246,1041,493,17186
+1,0.000000,0,0,0,0,0
+2,0.000000,0,0,0,0,0
+3,0.000000,0,0,0,0,0
+SUM,0.031820,1,2246,1041,493,17186
+##END R00001 flat profile
+
+##END flat region profiles
+
+##BEG callgraph region profiles
+##BEG R00001 callgraph profile
+[*00],unknown
+[=01],R00001,USER REGION,pthreads.cpp,92,105,enum
+TID,execT/I,execT/E,execC,PAPI_L1_TCM/I,PAPI_L1_TCM/E,PAPI_L2_TCM/I,PAPI_L2_TCM/E,PAPI_L3_TCM/I,PAPI_L3_TCM/E,PAPI_TOT_INS/I,PAPI_TOT_INS/E
+0,0.031795,0.031795,1,2235,2235,1016,1016,455,455,17062,17062
+1,0.000000,0.000000,0,0,0,0,0,0,0,0,0
+2,0.000000,0.000000,0,0,0,0,0,0,0,0,0
+3,0.000000,0.000000,0,0,0,0,0,0,0,0,0
+SUM,0.031795,0.031795,1,2235,2235,1016,1016,455,455,17062,17062
+##END R00001 callgraph profile
+
+##END callgraph region profiles
+
+##BEG overhead analysis report
+Total runtime (wallclock) [secs],0.064856
+Number of threads,4
+Number of parallel regions,0
+Parallel coverage [secs],0.000000
+Parallel coverage [percent],0.000000
+
+##BEG parallel regions sorted by wallclock time
+,Type,Wallclock,(%),PAPI_L1_TCM,PAPI_L2_TCM,PAPI_L3_TCM,PAPI_TOT_INS
+SUM,0.000000,,0.000000,0,0,0,0
+##END parallel regions sorted by wallclock time
+
+##BEG overheads for parallel region
+,Total,Ovhds,(%),Synch,(%),Imbal,(%),Limpar,(%),Mgmt,(%)
+##END overheads for parallel region
+
+##BEG overheads for whole program
+,Total,Ovhds,(%),Synch,(%),Imbal,(%),Limpar,(%),Mgmt,(%)
+SUM,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000
+##END overheads for whole program
+
+##END overhead analysis report
+
